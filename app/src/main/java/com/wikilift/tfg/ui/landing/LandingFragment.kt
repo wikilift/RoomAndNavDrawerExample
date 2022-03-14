@@ -13,7 +13,7 @@ import com.wikilift.tfg.databinding.FragmentLandingBinding
 
 class LandingFragment : Fragment(R.layout.fragment_landing) {
 
-    private lateinit var  binding:FragmentLandingBinding
+    private lateinit var  binding: FragmentLandingBinding
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing) {
 
         binding.btnLanding.setOnClickListener{ e->
             findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
-            makeToast(requireContext(),"voy a detail")
+            makeToast(requireContext(),"voy a detail por la derecha")
         }
     }
 }
