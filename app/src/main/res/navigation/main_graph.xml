@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/landingFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.wikilift.tfg.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.wikilift.tfg.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_petDetailFragment"
+            app:destination="@id/petDetailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/petDetailFragment"
+        android:name="com.wikilift.tfg.ui.petDetail.PetDetailFragment"
+        android:label="fragment_pet_detail"
+        tools:layout="@layout/fragment_pet_detail" >
+        <action
+            android:id="@+id/action_petDetailFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+</navigation>
