@@ -3,19 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/landingFragment">
 
-    <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.wikilift.tfg.ui.splash.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
-        <action
-            android:id="@+id/action_splashFragment_to_landingFragment"
-            app:destination="@id/landingFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left" />
-    </fragment>
     <fragment
         android:id="@+id/landingFragment"
         android:name="com.wikilift.tfg.ui.landing.LandingFragment"
@@ -25,7 +14,9 @@
             android:id="@+id/action_landingFragment_to_petDetailFragment"
             app:destination="@id/petDetailFragment"
             app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:exitAnim="@anim/slide_out_right"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/petDetailFragment"
@@ -35,11 +26,8 @@
         <action
             android:id="@+id/action_petDetailFragment_to_landingFragment"
             app:destination="@id/landingFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left" />
-        <action
-            android:id="@+id/action_petDetailFragment_to_testZone"
-            app:destination="@id/testZone" />
+            app:popUpTo="@id/landingFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/testZone"

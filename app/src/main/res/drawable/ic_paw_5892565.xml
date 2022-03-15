@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="708.444dp"
+    android:height="655.06665dp"
+    android:viewportWidth="708.444"
+    android:viewportHeight="655.06665">
+  <group>
+    <clip-path
+        android:pathData="M0,0L708.444,0L708.444,655.067L0,655.067Z"/>
+    <path
+        android:pathData="m321.633,107.557c20.711,71.447 0.399,140.125 -45.365,153.4 -45.764,13.273 -99.673,-33.888 -120.385,-105.327 -20.713,-71.447 -0.399,-140.125 45.348,-153.391C247.01,-11.041 300.92,36.117 321.633,107.557"
+        android:fillColor="#231f20"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"/>
+    <path
+        android:pathData="m159.555,304.194c33.081,56.42 29.224,120.152 -8.627,142.337 -37.851,22.199 -95.368,-5.544 -128.432,-61.98 -33.097,-56.412 -29.223,-120.153 8.644,-142.345C68.975,220.013 126.475,247.766 159.555,304.194"
+        android:fillColor="#231f20"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"/>
+    <path
+        android:pathData="m361.495,333.326c92.959,-0 265.524,202.347 209.653,284.283 -55.872,81.937 -152.552,3.907 -209.653,3.907 -57.1,-0 -153.781,78.031 -209.653,-3.907C95.971,535.673 268.538,333.326 361.495,333.326"
+        android:fillColor="#231f20"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"/>
+    <path
+        android:pathData="m384.336,107.557c-20.713,71.447 -0.399,140.125 45.364,153.4 45.765,13.273 99.673,-33.888 120.387,-105.327C570.799,84.184 550.486,15.505 504.738,2.24 458.958,-11.041 405.048,36.117 384.336,107.557"
+        android:fillColor="#231f20"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"/>
+    <path
+        android:pathData="m549.953,253.984c-41.275,50.725 -47.177,114.301 -13.132,141.988 34.028,27.703 95.103,9.033 136.361,-41.716 41.291,-50.719 47.176,-114.303 13.115,-141.997C652.287,184.565 591.228,203.241 549.953,253.984"
+        android:fillColor="#231f20"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"/>
+  </group>
+</vector>

@@ -16,3 +16,16 @@ import android.view.View
         }
     })
 }
+
+fun ObjectAnimator.swapVisibility(viewToHide: View,viewToShow:View) {
+    addListener(object : AnimatorListenerAdapter() {
+        override fun onAnimationStart(animation: Animator?) {
+
+        }
+
+        override fun onAnimationEnd(animation: Animator?) {
+           viewToHide.hide()
+            viewToShow.show()
+        }
+    })
+}

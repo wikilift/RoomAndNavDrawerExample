@@ -106,7 +106,7 @@ class TestZone : Fragment(R.layout.fragment_test_zone) {
         animator.start()
     }
 
-    private fun fader() {
+     fun fader() {
         val animator = ObjectAnimator.ofFloat(binding.star, View.ALPHA, 0f)
         animator.repeatCount = 1
         animator.repeatMode = ObjectAnimator.REVERSE
@@ -115,7 +115,7 @@ class TestZone : Fragment(R.layout.fragment_test_zone) {
         animator.start()
     }
 
-    private fun scaler() {
+     fun scaler() {
         val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 4f)//propiedad en el eje X
         val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 4f)//propiedad en el eje Y
         val animator =
@@ -126,7 +126,7 @@ class TestZone : Fragment(R.layout.fragment_test_zone) {
         animator.start()
     }
 
-    private fun translater() {
+     fun translater() {
         val animator =
             ObjectAnimator.ofFloat(binding.star, View.TRANSLATION_X, 200f) //inicia movimiento
         animator.repeatCount = 1 //cuantas veces se repita para considerarse completa
