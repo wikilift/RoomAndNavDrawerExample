@@ -1,5 +1,5 @@
 package com.wikilift.tfg.core.extensions
 
-interface IOnbackPressed {
+interface IOnBackPressed {
     fun onBackPressed(): Boolean
 }

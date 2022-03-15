@@ -7,27 +7,31 @@
     tools:context=".ui.landing.LandingFragment">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:text="soy el landing"
-        android:textColor="@color/Crimson"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/imgCircle"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btn_landing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
+        android:layout_marginBottom="16dp"
         android:padding="8dp"
         android:text="Navigate"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -2,4 +2,34 @@
     <string name="app_name">TFG</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--string of gallery picker-->
+    <string name="message_gallery_permission_denied"> El permiso para leer la memoria es necesario para seleccionar una imagen. Permita la autorización correspondiente en Configuración> Autorizaciones. </string>
+    <string name="message_camera_permission_denied"> Los permisos de la cámara y el acceso a la memoria externa son necesarios para tomar una foto. Permita todos los permisos solicitados en Configuración> Permisos. </string>
+    <string name="allow_gallery_denied">
+       <![CDATA[]]>Se requiere autorización para leer la memoria para seleccionar una imagen. Permita la autorización correspondiente en Configuración> Autorizaciones. </string>
+    <string name="allow_camera_extended_denied">
+       <![CDATA[Los permisos de la cámara y el acceso a la memoria externa son necesarios para tomar una foto. Permita todos los permisos solicitados en Configuración> Permisos.]]></string>
+    <string name="allow_camera_denied">
+               <![CDATA[Se requiere autorización para acceder a la memoria externa para tomar una foto. Permita el acceso en Configuración> Permisos.]]></string>
+
+
+    <string name="error_failed_to_create_camera_image_file"> No se pudo tomar una foto </string>
+    <string name="error_failed_pick_gallery_image"> No se pudo seleccionar ninguna foto de la galería </string>
+    <string name="error_failed_to_crop_image"> No se pudo recortar la foto </string>
+    <string name="error_failed_to_compress_image"> No se pudo comprimir la foto </string>
+    <string name="error_task_cancelled"> Proceso cancelado </string>
+    <string name="error_camera_app_not_found"> No se encontró ninguna aplicación de cámara </string>
+
+
+    <!-- inicio de recurso de cadena de uCrop -->
+
+    <string name="ucrop_label_original"> Original </string>
+    <string name="ucrop_label_edit_photo"> Editar foto </string>
+
+    <string name="ucrop_menu_crop"> Recortar </string>
+
+    <string name="ucrop_rotate"> Rotar </string>
+    <string name="ucrop_scale"> Escala </string>
+    <string name="ucrop_crop"> Recortar </string>
+    <!-- fin de recurso de cadena de uCrop -->
 </resources>
