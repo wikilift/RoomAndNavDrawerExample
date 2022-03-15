@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/landingFragment"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/petDetailFragment"
+            android:icon="@drawable/ic_baseline_pets_24"
+            android:title="detail" />
+
+    </group>
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/testZone"
+            android:icon="@drawable/ic_baseline_fact_check_24"
+            android:title="tools" />
+    </group>
+
+    <item android:title="Penes">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/splashFragment"
+                    android:icon="@drawable/ic_star"
+                    android:title="splash" />
+
+
+            </group>
+        </menu>
+    </item>
+
+</menu>

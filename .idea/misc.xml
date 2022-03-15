@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable-v24/ic_moon.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable-v24/ic_star_outline.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.181" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_motion_layout.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_motion_layout_testing_zone.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_pet_detail.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_test_zone.xml" value="0.29074074074074074" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/menu/activity_home_navigation_drawer.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.35625" />
       </map>
     </option>
   </component>
@@ -15,5 +24,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.35625" />
+      </ProjectState>
+    </option>
   </component>
 </project>

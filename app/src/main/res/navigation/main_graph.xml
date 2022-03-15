@@ -37,5 +37,13 @@
             app:destination="@id/landingFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_petDetailFragment_to_testZone"
+            app:destination="@id/testZone" />
     </fragment>
+    <fragment
+        android:id="@+id/testZone"
+        android:name="com.wikilift.tfg.ui.testingZone.TestZone"
+        android:label="fragment_test_zone"
+        tools:layout="@layout/fragment_test_zone" />
 </navigation>
