@@ -3,36 +3,42 @@ package com.wikilift.tfg
 
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
+
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.wikilift.tfg.core.extensions.IOnBackPressed
-import com.wikilift.tfg.core.extensions.makeToast
+
 import com.wikilift.tfg.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
- private lateinit var navController: NavController
+    private lateinit var navController: NavController
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*val navHostFragment =
+        val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        binding.navigationView.setupWithNavController(navController)*/
-        setSupportActionBar(binding.toolbar )
+        setupDrawerLayout()
+        setSupportActionBar(binding.toolbar)
 
 
-        val toggle = ActionBarDrawerToggle(
+
+
+       val toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
             binding.toolbar,
@@ -42,32 +48,36 @@ class MainActivity : AppCompatActivity() {
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        binding.navigationView.getHeaderView(0).setOnClickListener{
-            makeToast(this,"has pulsado")
-        }
 
 
 
     }
 
+    fun setupActionBar(toolBar: Toolbar) {
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (!binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            menuInflater.inflate(R.menu.activity_home_navigation_drawer, menu);
-            return true;
-        }
-        return super.onCreateOptionsMenu(menu);
+        setSupportActionBar(toolBar)
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        navController = navHostFragment.navController
+
+        setupActionBarWithNavController(navController)
+
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, binding.drawerLayout)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                binding.drawerLayout.openDrawer(GravityCompat.START)
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
+
+
+    private fun setupDrawerLayout() {
+        binding.navView.setupWithNavController(navController)
+
     }
+
+
+
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START);
@@ -76,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+       /* val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         navHost?.let { navFragment ->
             navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
                 (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let { isCanceled: Boolean ->
@@ -86,6 +96,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }*/
     }
 }
