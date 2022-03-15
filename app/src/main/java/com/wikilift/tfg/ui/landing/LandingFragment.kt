@@ -122,5 +122,10 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
 
     }
 
+    override fun onResume() {
+        counter=1
+        super.onResume()
+    }
+
 
 }

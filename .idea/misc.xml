@@ -5,8 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_moon.xml" value="0.181" />
         <entry key="app/src/main/res/drawable-v24/ic_star_outline.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/ic_pug_4862083.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.181" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_motion_layout.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_motion_layout_testing_zone.xml" value="0.35625" />
