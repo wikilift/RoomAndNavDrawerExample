@@ -7,39 +7,12 @@
     tools:context=".ui.landing.LandingFragment">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/landingView"
-    android:visibility="gone"
+    android:visibility="visible"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="1"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imgCircle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-
-        android:id="@+id/imgCircle"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
+   <Button
         android:id="@+id/btn_landing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +31,7 @@
     <ImageView
         android:id="@+id/loading"
         android:layout_width="100dp"
+        tools:visibility="gone"
         android:layout_height="100dp"
         android:src="@drawable/ic_paw_5892565"
         app:layout_constraintBottom_toBottomOf="parent"

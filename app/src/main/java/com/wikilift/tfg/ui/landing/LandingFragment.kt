@@ -1,29 +1,21 @@
 package com.wikilift.tfg.ui.landing
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.app.Activity
-import android.content.ContentValues
 
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.github.drjacky.imagepicker.ImagePicker
+import com.wikilift.tfg.MainActivity
 import com.wikilift.tfg.R
 import com.wikilift.tfg.core.extensions.*
 import com.wikilift.tfg.data.local.datasource.PetLocalDataSourceImpl
@@ -59,7 +51,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
                 val source: ImageDecoder.Source =
                     ImageDecoder.createSource(requireActivity().contentResolver, uri)
                 bitmap = ImageDecoder.decodeBitmap(source)
-                binding.imgCircle.setImageURI(uri)
+                //binding.imgCircle.setImageURI(uri)
 
 
                 val path = MediaStore.Images.Media.insertImage(
@@ -69,7 +61,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
                     null
                 )
 
-                binding.imgCircle.setImageURI(Uri.parse(path))
+                //binding.imgCircle.setImageURI(Uri.parse(path))
                 makeSnack(requireView(), "Imagen guardada en la galería", "top")
                 // saveOnDB!
 
@@ -83,7 +75,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentLandingBinding.bind(view)
-        stetic()
+        loadingAnimation()
 
         binding.btnLanding.setOnClickListener {
             findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
@@ -101,12 +93,16 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
 
     }
 
-    private fun stetic() {
+    private fun loadingAnimation() {
 
         if(firstInit){
             binding.loading.rotate(binding.loading,1,1,binding.landingView,binding.loading)
             firstInit=false
+            val k=activity?.findViewById<View>(R.id.toolbar)
+            k?.show()
         }else{
+            val k=activity?.findViewById<View>(R.id.toolbar)
+            k?.show()
             binding.loading.hide()
             binding.landingView.show()
         }
