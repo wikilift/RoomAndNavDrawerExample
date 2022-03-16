@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                     //future implementation
                 }
                 R.id.testZone -> {
-                    //future implementation
+                    binding.toolbar.hide()
                 }
 
 
