@@ -1,19 +1,20 @@
 package com.wikilift.tfg.data.local.datasource
 
 import com.wikilift.tfg.data.local.room.PetDao
-import com.wikilift.tfg.data.model.PetBase
+import com.wikilift.tfg.data.model.room.entity.PetBase
 
-import com.wikilift.tfg.data.model.room.mapper.toPetBase
-import com.wikilift.tfg.data.model.room.mapper.toPetBaseList
-import com.wikilift.tfg.data.model.room.mapper.toPetEntity
+
 
 class PetLocalDataSourceImpl(private val petDao: PetDao):PetLocalDataSource {
-     override suspend fun getAll():MutableList<PetBase> = petDao.getAll().toPetBaseList()
-     override suspend fun getPet(petId:Int):PetBase = petDao.getPet(petId).toPetBase()
-     override suspend fun deletePet(petId: Int){
-        petDao.deletePet(petId)
+     override suspend fun getAll():List<PetBase> = petDao.getAll()
+    override suspend fun updatePet(pet: PetBase) {
+        petDao.updatePet(pet)
     }
-     override suspend fun insertPet(pet:PetBase){
-        petDao.insertPet(pet.toPetEntity())
+
+    override suspend fun deletePet(pet: PetBase){
+        petDao.deletePet(pet)
+    }
+     override suspend fun insertPet(pet: PetBase){
+        petDao.insertPet(pet)
     }
 }

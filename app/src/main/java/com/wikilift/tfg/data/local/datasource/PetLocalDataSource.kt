@@ -1,10 +1,10 @@
 package com.wikilift.tfg.data.local.datasource
 
-import com.wikilift.tfg.data.model.PetBase
+import com.wikilift.tfg.data.model.room.entity.PetBase
 
 interface PetLocalDataSource {
-    suspend fun getAll():MutableList<PetBase>
-    suspend fun getPet(petId:Int):PetBase
-    suspend fun deletePet(petId: Int)
-    suspend fun insertPet(pet:PetBase)
+    suspend fun getAll():List<PetBase>
+    suspend fun updatePet(pet: PetBase)
+    suspend fun deletePet(pet: PetBase)
+    suspend fun insertPet(pet: PetBase)
 }

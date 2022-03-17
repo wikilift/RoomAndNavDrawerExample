@@ -17,6 +17,9 @@
             app:exitAnim="@anim/slide_out_right"
 
             />
+        <action
+            android:id="@+id/action_landingFragment_to_splashFragment3"
+            app:destination="@id/splashFragment3" />
     </fragment>
     <fragment
         android:id="@+id/petDetailFragment"
@@ -28,10 +31,24 @@
             app:destination="@id/landingFragment"
             app:popUpTo="@id/landingFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_petDetailFragment_to_testZone"
+            app:destination="@id/testZone" />
     </fragment>
     <fragment
         android:id="@+id/testZone"
         android:name="com.wikilift.tfg.ui.testingZone.TestZone"
         android:label="fragment_test_zone"
         tools:layout="@layout/fragment_test_zone" />
+    <fragment
+        android:id="@+id/splashFragment3"
+        android:name="com.wikilift.tfg.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment3_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
 </navigation>

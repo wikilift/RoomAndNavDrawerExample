@@ -19,7 +19,7 @@ var firstInit=true
 
 fun View.rotate(view:View,times:Int=0,mode:Int=0, viewToShow: View? = null,viewToHide:View?=null) {
     val animator = ObjectAnimator.ofFloat(view, View.ROTATION, -360f, 360f)
-    animator.duration = 1800
+    animator.duration = 2000
     if(times>0){
 
         animator.repeatCount = times

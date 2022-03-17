@@ -20,7 +20,7 @@
             android:layout_width="99dp"
             android:layout_height="103dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_bulldog_1456110"
+            android:src="@drawable/ic_pug_4862083"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

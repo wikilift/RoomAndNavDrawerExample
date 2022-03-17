@@ -1,8 +1,6 @@
 package com.wikilift.tfg.data.model.room.mapper
 
-import com.wikilift.tfg.data.model.PetBase
-import com.wikilift.tfg.data.model.room.entity.PetEntity
-
+/*
 fun PetBase.toPetEntity(): PetEntity = PetEntity(
     name = this.name,
     type = this.type,
@@ -20,3 +18,4 @@ fun MutableList<PetBase>.toPetBaseList():MutableList<PetEntity>{
     this.forEach{ resultList.add(it.toPetEntity())}
     return resultList
 }
+*/

@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "androidx.navigation.safeargs"
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -33,6 +35,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs = ['-Xjvm-default=enable']
     }
 }
 
@@ -53,9 +56,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
     // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-alpha04"
     // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha04")
+
 
     //recyclerview
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -66,7 +71,7 @@ dependencies {
 
     //Glide
 
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     //circleImageview
     implementation 'de.hdodenhof:circleimageview:3.1.0'
@@ -78,10 +83,23 @@ dependencies {
 
     //Room
 
-    implementation 'androidx.room:room-ktx:2.4.2'
-    implementation "androidx.room:room-runtime:2.4.2"
+
+
+    implementation("androidx.room:room-runtime:2.4.2")
+    annotationProcessor("androidx.room:room-compiler:2.4.2")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.4.2")
+
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.4.2")
+
+
+
     //material
     implementation "com.google.android.material:material:1.6.0-alpha03"
+
 
 
 }

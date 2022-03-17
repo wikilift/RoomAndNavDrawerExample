@@ -1,6 +1,7 @@
 package com.wikilift.tfg.ui.landing
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -9,7 +10,10 @@ import android.os.Build
 import android.os.Bundle
 
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.RotateAnimation
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -18,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import com.wikilift.tfg.MainActivity
 import com.wikilift.tfg.R
 import com.wikilift.tfg.core.extensions.*
+import com.wikilift.tfg.core.uiutils.Result
 import com.wikilift.tfg.data.local.datasource.PetLocalDataSourceImpl
 import com.wikilift.tfg.data.local.room.AppDatabase
 import com.wikilift.tfg.databinding.FragmentLandingBinding
@@ -25,12 +30,17 @@ import com.wikilift.tfg.databinding.FragmentLandingBinding
 import com.wikilift.tfg.domain.PetRepoImpl
 import com.wikilift.tfg.presentation.PetViewModel
 import com.wikilift.tfg.presentation.PetViewModelFactory
+import java.lang.Exception
 
 
-class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
+class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
 
     private lateinit var binding: FragmentLandingBinding
-    private var counter=1
+
+    //counter back pressed
+    private var counter = 1
+
+    //dependency injection
     private val viewModel by viewModels<PetViewModel> {
         PetViewModelFactory(
             PetRepoImpl(
@@ -42,7 +52,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
 
     private var bitmap: Bitmap? = null
 
-
+    //register activity to camera launch
     @RequiresApi(Build.VERSION_CODES.P)
     private val launcher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -70,47 +80,72 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
         }
 
 
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding = FragmentLandingBinding.bind(view)
-        loadingAnimation()
-
-        binding.btnLanding.setOnClickListener {
-            findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
-            /*try {
-                ImagePicker.with(requireActivity()).createIntentFromDialog { launcher.launch(it) }
-
-                //findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
-
-            } catch (e: Exception) {
-                Log.d(ContentValues.TAG, e.toString())
-            }*/
-
-        }
-
-
-    }
-
-    private fun loadingAnimation() {
-
         if(firstInit){
-            binding.loading.rotate(binding.loading,1,1,binding.landingView,binding.loading)
+            findNavController().navigate(R.id.action_landingFragment_to_splashFragment3)
             firstInit=false
-            val k=activity?.findViewById<View>(R.id.toolbar)
-            k?.show()
-        }else{
-            val k=activity?.findViewById<View>(R.id.toolbar)
-            k?.show()
-            binding.loading.hide()
-            binding.landingView.show()
+        }
+        binding = FragmentLandingBinding.bind(view)
+
+
+        buttonAddRotate()
+        downloadPets()
+
+
+
+        /*else {
+           val k = activity?.findViewById<View>(R.id.toolbar)
+           k?.show()
+
+       }*/
+
+        /*try {
+            ImagePicker.with(requireActivity()).createIntentFromDialog { launcher.launch(it) }
+
+            //findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
+
+        } catch (e: Exception) {
+            Log.d(ContentValues.TAG, e.toString())
+        }*/
+
+
+    }
+
+    private fun buttonAddRotate() {
+        val rotation= AnimationUtils.loadAnimation(requireContext(),R.anim.infinite_rotation)
+        rotation.fillAfter=true
+        binding.addButton.startAnimation(rotation)
+    }
+
+    private fun downloadPets() {
+        viewModel.getAll().observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                    binding.progressbar.show()
+
+
+                }
+                is Result.Succes -> {
+                    binding.progressbar.hide()
+
+                    binding.landingView.show()
+                    Log.d(XX, "He acabado ${result.data.size}")
+                }
+                is Result.Failure -> {
+                    Log.d(XX, result.exception.toString())
+                }
+            }
         }
     }
+
+
+
 
     override fun onBackPressed(): Boolean {
-        if (counter>0){
-            makeToast(requireContext(),"Presiona atrás otra vez para salir")
+        if (counter > 0) {
+            makeToast(requireContext(), "Presiona atrás otra vez para salir")
             counter--
             return false
         }
@@ -119,7 +154,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing),IOnBackPressed {
     }
 
     override fun onResume() {
-        counter=1
+        counter = 1
         super.onResume()
     }
 

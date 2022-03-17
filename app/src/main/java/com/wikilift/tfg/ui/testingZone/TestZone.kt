@@ -13,11 +13,12 @@ import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 
 import com.wikilift.tfg.R
+import com.wikilift.tfg.core.extensions.IOnBackPressed
 import com.wikilift.tfg.core.extensions.disableViewDuringAnimation
 import com.wikilift.tfg.databinding.FragmentTestZoneBinding
 
 
-class TestZone : Fragment(R.layout.fragment_test_zone) {
+class TestZone : Fragment(R.layout.fragment_test_zone),IOnBackPressed{
     private lateinit var binding: FragmentTestZoneBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -161,4 +162,6 @@ class TestZone : Fragment(R.layout.fragment_test_zone) {
             }
         })
     }
+
+    override fun onBackPressed(): Boolean =true
 }

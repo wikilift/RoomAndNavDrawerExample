@@ -2,19 +2,20 @@ package com.wikilift.tfg
 
 
 
+
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+
 import com.wikilift.tfg.core.extensions.IOnBackPressed
-import com.wikilift.tfg.core.extensions.firstInit
 import com.wikilift.tfg.core.extensions.hide
 import com.wikilift.tfg.core.extensions.show
 import com.wikilift.tfg.databinding.ActivityMainBinding
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_pug_4862083)
         observeDestinationChange()
-
+        setStatusBar()
 
     }
 
@@ -95,11 +96,11 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.landingFragment -> {
-                    //future implementation
+                    binding.toolbar.show()
 
                 }
-                R.id.petDetailFragment -> {
-                    //future implementation
+                R.id.splashFragment -> {
+                    binding.toolbar.hide()
                 }
                 R.id.testZone -> {
                     binding.toolbar.hide()
@@ -107,13 +108,13 @@ class MainActivity : AppCompatActivity() {
 
 
                 else -> {
-                    //future implementation
+                    binding.toolbar.show()
                 }
             }
         }
     }
     //future implementation
-    /*private fun setStatusBar() {
+    private fun setStatusBar() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
@@ -123,5 +124,6 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-    }*/
+    }
+
 }

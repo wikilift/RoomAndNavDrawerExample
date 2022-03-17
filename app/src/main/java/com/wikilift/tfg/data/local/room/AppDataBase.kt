@@ -4,22 +4,30 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.wikilift.tfg.data.model.room.entity.Converters
+import com.wikilift.tfg.data.model.room.entity.PetBase
+import com.wikilift.tfg.data.model.room.entity.PetTreatment
 
-import com.wikilift.tfg.data.model.room.entity.PetEntity
 
-
-@Database(entities = [PetEntity::class], version = 1)
-abstract class AppDatabase:RoomDatabase() {
+@Database(entities = [PetBase::class], version = 1)
+@TypeConverters(Converters::class)
+abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): PetDao
-    companion object{
-        private var INSTANCE: AppDatabase?=null
+
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
         fun getDatabase(context: Context): AppDatabase {
             INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context.applicationContext, AppDatabase::class.java,"pet_table"
+                context.applicationContext,
+                AppDatabase::class.java, "appDatabase"
             ).build()
             return INSTANCE!!
         }
-        fun destroyInstance(){
-            INSTANCE =null}
+
+        fun destroyInstance() {
+            INSTANCE = null
+        }
     }
 }

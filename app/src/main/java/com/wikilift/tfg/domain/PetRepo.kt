@@ -1,10 +1,10 @@
 package com.wikilift.tfg.domain
 
-import com.wikilift.tfg.data.model.PetBase
+import com.wikilift.tfg.data.model.room.entity.PetBase
 
 interface PetRepo {
-    suspend fun getAll():MutableList<PetBase>
-    suspend fun getPet(petId:Int):PetBase
-    suspend fun insertPet(pet:PetBase)
-    suspend fun deletePet(petId: Int)
+    suspend fun getAll():List<PetBase>
+    suspend fun update(pet: PetBase)
+    suspend fun insertPet(pet: PetBase)
+    suspend fun deletePet(pet: PetBase)
 }

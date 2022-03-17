@@ -1,22 +1,23 @@
 package com.wikilift.tfg.data.local.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.wikilift.tfg.data.model.room.entity.PetBase
+import com.wikilift.tfg.data.model.room.entity.PetWithTreatments
 
-import com.wikilift.tfg.data.model.room.entity.PetEntity
 
 @Dao
 interface PetDao {
     @Query("SELECT * FROM pet_table")
-    suspend fun getAll():MutableList<PetEntity>
+    suspend fun getAll():List<PetBase>
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertPet(pet: PetEntity)
-    @Query("DELETE FROM pet_table WHERE id = :petId")
-    suspend fun deletePet(petId:Int)
+    suspend fun insertPet(pet: PetBase)
+    @Delete
+    suspend fun deletePet(pet: PetBase)
+    @Update
+    suspend fun updatePet(pet: PetBase)
+   @Transaction
     @Query("SELECT * FROM pet_table WHERE id = :petId")
-    suspend fun getPet(petId: Int):PetEntity
+    suspend fun getTreatmentsWithPet(petId:Int):List<PetBase>
 
 
 }
