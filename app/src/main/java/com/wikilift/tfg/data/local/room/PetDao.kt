@@ -15,9 +15,10 @@ interface PetDao {
     suspend fun deletePet(pet: PetBase)
     @Update
     suspend fun updatePet(pet: PetBase)
-   @Transaction
-    @Query("SELECT * FROM pet_table WHERE id = :petId")
-    suspend fun getTreatmentsWithPet(petId:Int):List<PetBase>
+
+    @Transaction
+    @Query("SELECT * FROM pet_table ")
+    suspend fun getTreatmentsWithPet():List<PetWithTreatments>
 
 
 }

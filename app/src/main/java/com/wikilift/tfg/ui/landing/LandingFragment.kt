@@ -1,6 +1,8 @@
 package com.wikilift.tfg.ui.landing
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 
 import android.graphics.Bitmap
@@ -129,7 +131,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
                 }
                 is Result.Succes -> {
                     binding.progressbar.hide()
-
+                    if(result.data.isEmpty()) binding.noPetsRegistered.show()
                     binding.landingView.show()
                     Log.d(XX, "He acabado ${result.data.size}")
                 }
@@ -139,9 +141,51 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
             }
         }
     }
+/*
+    @SuppressLint("InflateParams")
+    private fun showDialog(userName: String) {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater: LayoutInflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.edit_text_layout_dialog, null)
+        val editText: EditText = dialogLayout.findViewById(R.id.delete_requisit)
+        var inputName: String
 
 
+        with(builder) {
 
+            setTitle("Esta acción no se puede deshacer")
+
+            setPositiveButton("Aceptar") { _, _ ->
+
+                inputName = editText.text.trim().toString()
+                if (validateDelete(userName, inputName)) {
+
+                    declineRequest()
+                } else {
+                    makeSnack(requireView(), getString(R.string.notcorrect), "center")
+
+                }
+
+
+            }
+            setNegativeButton("Cancelar") { _, _ ->
+                returnTransition
+            }
+
+            //listAdapter.removeItem(friendToErase!!)
+
+            editText.hint = String.format(getString(R.string.delete_validation), userName)
+            setView(dialogLayout)
+            show()
+
+
+        }
+
+        // addFriend(userName)
+
+    }
+
+*/
 
     override fun onBackPressed(): Boolean {
         if (counter > 0) {

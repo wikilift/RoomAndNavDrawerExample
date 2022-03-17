@@ -10,7 +10,7 @@ import com.wikilift.tfg.data.model.room.entity.PetBase
 import com.wikilift.tfg.data.model.room.entity.PetTreatment
 
 
-@Database(entities = [PetBase::class], version = 1)
+@Database(entities = [PetBase::class,PetTreatment::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): PetDao

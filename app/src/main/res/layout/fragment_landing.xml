@@ -6,26 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.landing.LandingFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_paw_5892565"
+
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="TODO"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="65dp"
-        android:focusable="true" />
+        android:focusable="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_paw_5892565"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/landingView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/noPetsRegistered"
+            android:visibility="gone"
+            android:text="¡Aún no has registrado a tu mascota!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:drawableTopCompat="@drawable/animal_wow"
+            android:drawablePadding="25dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/akronim"
+            android:textStyle="bold"
+            android:textColor="@color/Crimson"
 
+            android:layout_centerInParent="true"
+
+            tools:visibility="visible"
+            app:drawableBottomCompat="@drawable/ic_arrow_blue"
+            />
         <!-- landing layout start here -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pets"
@@ -39,7 +67,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/progressbar"

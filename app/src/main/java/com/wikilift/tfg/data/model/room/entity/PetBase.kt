@@ -22,12 +22,7 @@ data class PetBase(
     val chipNumber: String = "No tiene",
 
 
-) : Parcelable{
-    @IgnoredOnParcel
-   @Ignore
-    val listOfTreatments: List<PetTreatment> = emptyList()
-}
-
+) : Parcelable
 
 class Converters {
     @TypeConverter

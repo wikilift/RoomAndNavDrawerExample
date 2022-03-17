@@ -7,17 +7,16 @@ import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 import java.util.*
 
-
-
+@Parcelize
+@Entity(tableName = "treatment_table")
 data class PetTreatment(
-
-    val treatmentId: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val treatmentId:Int,
+    val petId: Int,
     var startDate: Date,
     val endDate: Date,
     var quantity: Int = 0,
-    @PrimaryKey(autoGenerate = false)
     var nameOfPill: String = "medicamento"
 
-)
 
-
+):Parcelable

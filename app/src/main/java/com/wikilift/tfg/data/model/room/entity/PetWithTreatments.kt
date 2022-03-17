@@ -12,6 +12,9 @@ data class PetWithTreatments
     (
     @Embedded
     val petBase: PetBase,
-    @Relation(parentColumn = "id", entityColumn = "treatmentId")
-    val list: List<PetWithTreatments> = emptyList()
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "petId"
+    )
+    val list: List<PetTreatment>
 )
