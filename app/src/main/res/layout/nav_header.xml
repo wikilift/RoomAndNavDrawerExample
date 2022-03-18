@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
 
-        android:background="@drawable/leather">
+        android:background="@color/Crimson">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
@@ -38,7 +38,7 @@
             android:padding="8dp"
             android:text="myAwesomeApp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
-            android:textColor="@color/Crimson"
+            android:textColor="@color/WhiteSmoke"
 
             app:layout_constraintBottom_toTopOf="@+id/circleImageView"
             app:layout_constraintStart_toStartOf="parent" />

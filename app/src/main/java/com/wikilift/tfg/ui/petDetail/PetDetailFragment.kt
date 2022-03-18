@@ -10,6 +10,7 @@ import android.view.View
 
 
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 
 import com.wikilift.tfg.R
@@ -20,6 +21,7 @@ import com.wikilift.tfg.databinding.FragmentPetDetailBinding
 class PetDetailFragment : Fragment(R.layout.fragment_pet_detail),IOnBackPressed{
 
     private lateinit var binding: FragmentPetDetailBinding
+
 
 
 

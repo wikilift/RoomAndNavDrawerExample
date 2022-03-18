@@ -3,36 +3,32 @@ package com.wikilift.tfg.ui.landing
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.ContentValues.TAG
-
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
-
 import android.os.Build
 import android.os.Bundle
-
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.view.animation.RotateAnimation
+import android.widget.EditText
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.wikilift.tfg.MainActivity
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
 import com.wikilift.tfg.R
 import com.wikilift.tfg.core.extensions.*
 import com.wikilift.tfg.core.uiutils.Result
 import com.wikilift.tfg.data.local.datasource.PetLocalDataSourceImpl
 import com.wikilift.tfg.data.local.room.AppDatabase
 import com.wikilift.tfg.databinding.FragmentLandingBinding
-
 import com.wikilift.tfg.domain.PetRepoImpl
 import com.wikilift.tfg.presentation.PetViewModel
 import com.wikilift.tfg.presentation.PetViewModelFactory
-import java.lang.Exception
 
 
 class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
@@ -84,16 +80,15 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(firstInit){
+        if (firstInit) {
             findNavController().navigate(R.id.action_landingFragment_to_splashFragment3)
-            firstInit=false
+            firstInit = false
         }
         binding = FragmentLandingBinding.bind(view)
 
 
         buttonAddRotate()
         downloadPets()
-
 
 
         /*else {
@@ -115,8 +110,8 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
     }
 
     private fun buttonAddRotate() {
-        val rotation= AnimationUtils.loadAnimation(requireContext(),R.anim.infinite_rotation)
-        rotation.fillAfter=true
+        val rotation = AnimationUtils.loadAnimation(requireContext(), R.anim.infinite_rotation)
+        rotation.fillAfter = true
         binding.addButton.startAnimation(rotation)
     }
 
@@ -131,8 +126,9 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
                 }
                 is Result.Succes -> {
                     binding.progressbar.hide()
-                    if(result.data.isEmpty()) binding.noPetsRegistered.show()
+                    if (result.data.isEmpty()) binding.noPetsRegistered.show()
                     binding.landingView.show()
+                    listenerNewPet()
                     Log.d(XX, "He acabado ${result.data.size}")
                 }
                 is Result.Failure -> {
@@ -141,51 +137,55 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
             }
         }
     }
-/*
+
+    private fun listenerNewPet() {
+        binding.addButton.setOnClickListener {
+            showDialog()
+        }
+    }
+
     @SuppressLint("InflateParams")
-    private fun showDialog(userName: String) {
+    private fun showDialog() {
+
+
         val builder = AlertDialog.Builder(requireContext())
         val inflater: LayoutInflater = layoutInflater
-        val dialogLayout = inflater.inflate(R.layout.edit_text_layout_dialog, null)
-        val editText: EditText = dialogLayout.findViewById(R.id.delete_requisit)
+        val dialogLayout = inflater.inflate(R.layout.modal_add_pet, null)
+        val btnAccept: MaterialButton = dialogLayout.findViewById(R.id.btn_accept)
+        val btnCancel: MaterialButton = dialogLayout.findViewById(R.id.btn_cancel)
+        val editText: EditText = dialogLayout.findViewById(R.id.nameOfPet)
+
         var inputName: String
+        var alertDialog: AlertDialog? = null
 
+        alertDialog = with(builder) {
+            builder.setCancelable(true)
+            btnAccept.setOnClickListener {
+                inputName = editText.text.toString()
+                if (inputName.isNotEmpty()) {
+                    val action = LandingFragmentDirections.actionLandingFragmentToPetCreationPet(inputName)
+                    findNavController().navigate(action)
+                    alertDialog?.dismiss()
 
-        with(builder) {
-
-            setTitle("Esta acción no se puede deshacer")
-
-            setPositiveButton("Aceptar") { _, _ ->
-
-                inputName = editText.text.trim().toString()
-                if (validateDelete(userName, inputName)) {
-
-                    declineRequest()
                 } else {
-                    makeSnack(requireView(), getString(R.string.notcorrect), "center")
+                    editText.requestFocus()
+                    editText.error="Debe tener un nombre"
 
                 }
 
-
             }
-            setNegativeButton("Cancelar") { _, _ ->
-                returnTransition
+            btnCancel.setOnClickListener {
+
+                alertDialog?.dismiss()
             }
-
-            //listAdapter.removeItem(friendToErase!!)
-
-            editText.hint = String.format(getString(R.string.delete_validation), userName)
             setView(dialogLayout)
-            show()
 
 
-        }
+        }.show()
 
-        // addFriend(userName)
 
     }
 
-*/
 
     override fun onBackPressed(): Boolean {
         if (counter > 0) {
@@ -193,6 +193,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
             counter--
             return false
         }
+        activity?.finish()
         return true
 
     }

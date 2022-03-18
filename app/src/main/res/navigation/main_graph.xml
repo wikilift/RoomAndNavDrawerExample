@@ -13,13 +13,18 @@
         <action
             android:id="@+id/action_landingFragment_to_petDetailFragment"
             app:destination="@id/petDetailFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
 
             />
         <action
             android:id="@+id/action_landingFragment_to_splashFragment3"
             app:destination="@id/splashFragment3" />
+        <action
+            android:id="@+id/action_landingFragment_to_petCreationPet"
+            app:destination="@id/petCreationPet"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/petDetailFragment"
@@ -50,5 +55,13 @@
             app:destination="@id/landingFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/petCreationPet"
+        android:name="com.wikilift.tfg.ui.creationpet.PetCreationPetFragment"
+        android:label="PetCreationPet" >
+        <argument
+            android:name="petName"
+            app:argType="string" />
     </fragment>
 </navigation>

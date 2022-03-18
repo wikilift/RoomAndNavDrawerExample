@@ -14,8 +14,8 @@
         android:background="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="15dp"
         android:focusable="true">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,8 +24,7 @@
             android:layout_height="30dp"
             android:layout_centerInParent="true"
             android:foregroundGravity="center"
-            android:src="@drawable/ic_paw_5892565"
-            />
+            android:src="@drawable/ic_paw_5892565" />
 
 
     </RelativeLayout>

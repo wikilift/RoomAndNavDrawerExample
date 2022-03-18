@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="animal_types">
+        <item>Tipo de animal</item>
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Conejo</item>
+        <item>Pez</item>
+        <item>Tortuga</item>
+        <item>Serpiente</item>
+        <item>Especial</item>
+
+    </string-array>
+</resources>

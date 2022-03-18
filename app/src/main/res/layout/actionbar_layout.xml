@@ -22,7 +22,7 @@
             android:fontFamily="@font/akronim"
             android:padding="4dp"
             android:text="myAwesomeApp"
-            android:textColor="@color/Crimson"
+            android:textColor="@color/WhiteSmoke"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

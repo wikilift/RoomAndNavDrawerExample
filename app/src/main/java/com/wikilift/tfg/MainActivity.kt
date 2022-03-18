@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_pug_4862083)
         observeDestinationChange()
-        setStatusBar()
+        //setStatusBar()
 
     }
 
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    //future implementation
+ /*   //future implementation
     private fun setStatusBar() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.setFlags(
@@ -124,6 +124,6 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-    }
+    }*/
 
 }
