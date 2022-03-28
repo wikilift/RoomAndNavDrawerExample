@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_pug_4862083)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
+        //supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_pug_4862083)
         observeDestinationChange()
         //setStatusBar()
 
