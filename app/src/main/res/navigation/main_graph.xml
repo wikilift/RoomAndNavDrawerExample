@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/landingFragment">
+    app:startDestination="@id/splashFragment3">
 
     <fragment
         android:id="@+id/landingFragment"
@@ -17,9 +17,6 @@
             app:exitAnim="@anim/slide_out_left"
 
             />
-        <action
-            android:id="@+id/action_landingFragment_to_splashFragment3"
-            app:destination="@id/splashFragment3" />
         <action
             android:id="@+id/action_landingFragment_to_petCreationPet"
             app:destination="@id/petCreationPet"
@@ -36,9 +33,6 @@
             app:destination="@id/landingFragment"
             app:popUpTo="@id/landingFragment"
             app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_petDetailFragment_to_testZone"
-            app:destination="@id/testZone" />
     </fragment>
     <fragment
         android:id="@+id/testZone"
@@ -63,5 +57,10 @@
         <argument
             android:name="petName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_petCreationPet_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_in_right" />
     </fragment>
 </navigation>

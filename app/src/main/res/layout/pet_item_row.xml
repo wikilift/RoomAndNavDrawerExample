@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="25dp"
+    android:layout_marginBottom="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="12dp"
+    android:padding="18dp"
+    android:background="@color/itemRowBK">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/itemRowBK"
+        android:orientation="horizontal"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+
+            android:padding="12dp"
+           >
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                tools:text="Charly"
+                android:textColor="@color/WhiteSmoke"
+                android:fontFamily="@font/montserrat_bold"
+                android:textStyle="bold"
+                android:textSize="25sp"
+
+                android:layout_gravity="center"
+               />
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/breed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+
+                tools:text="Charly"
+                android:textColor="@color/WhiteSmoke"
+                android:fontFamily="@font/montserrat_bold"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+               />
+
+        </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPet"
+                android:layout_weight="2"
+                android:padding="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"/>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

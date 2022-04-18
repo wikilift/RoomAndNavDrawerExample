@@ -5,36 +5,27 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/landingFragment"
+            android:id="@+id/home"
             android:icon="@drawable/ic_baseline_home_24"
             android:title="Home" />
         <item
-            android:id="@+id/petDetailFragment"
+            android:id="@+id/addPet"
             android:icon="@drawable/ic_baseline_pets_24"
-            android:title="detail" />
+            android:title="Añadir" />
 
     </group>
 
-    <group
-        android:id="@+id/group1"
-        android:checkableBehavior="single">
+
+
+
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/testZone"
-            android:icon="@drawable/ic_baseline_fact_check_24"
-            android:title="tools" />
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_star"
+            android:title="Ajustes" />
+
+
     </group>
 
-    <item android:title="Penes">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/splashFragment"
-                    android:icon="@drawable/ic_star"
-                    android:title="splash" />
-
-
-            </group>
-        </menu>
-    </item>
 
 </menu>

@@ -12,14 +12,14 @@ data class PetBase(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     var name: String,
-    val type: String,
-    val race: String = "única",
-    val sexType: Boolean,
-    var imgPath: String,
-    val birthDate: Date,
-    var weight: Double = 0.0,
-    val haveChip: Boolean = false,
-    val chipNumber: String = "No tiene",
+    var type: String="",
+    var race: String = "única",
+    var sexType: String="",
+    var imgPath: String="",
+    var birthDate: String="",
+    var weight: String = "0",
+    var haveChip: String="No",
+    var chipNumber: String = "No tiene",
 
 
 ) : Parcelable

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        android:background="@drawable/greenskin"
+        android:background="@color/appDarkmain"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:id="@+id/toolbar"
 
             android:layout_width="match_parent"
-            android:background="@color/Crimson"
+            android:background="@color/appDarkmain"
             android:layout_height="?attr/actionBarSize">
             <include layout="@layout/actionbar_layout"/>
 
@@ -48,10 +48,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/drawer_menu"
-        android:background="@drawable/greenskin"
-        app:itemIconTint="@color/Crimson"
+        android:background="@color/appDarkmain"
+        app:itemIconTint="@color/logoBlue"
         android:fitsSystemWindows="true"
-        app:itemTextColor="@color/Crimson"
+        app:itemTextColor="@color/WhiteSmoke"
         app:itemIconSize="25dp"
         />
 

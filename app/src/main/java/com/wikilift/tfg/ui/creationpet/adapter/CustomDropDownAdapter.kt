@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.wikilift.tfg.R
 
+/*
 class CustomDropDownAdapter(val context: Context, var arrayOfTypes: List<String>) : BaseAdapter() {
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -80,3 +81,5 @@ class CustomDropDownAdapter(val context: Context, var arrayOfTypes: List<String>
     }
 
 }
+
+ */

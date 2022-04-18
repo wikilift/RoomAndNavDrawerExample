@@ -7,24 +7,18 @@
     tools:context=".ui.landing.LandingFragment">
 
 
-
     <RelativeLayout
+        android:id="@+id/addButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="15dp"
-        android:focusable="true">
+        android:background="@drawable/add_pet"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/addButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerInParent="true"
-            android:foregroundGravity="center"
-            android:src="@drawable/ic_paw_5892565" />
+
 
 
     </RelativeLayout>
@@ -35,27 +29,30 @@
         android:layout_height="match_parent"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent">
+
         <TextView
             android:id="@+id/noPetsRegistered"
-            android:visibility="gone"
-            android:text="¡Aún no has registrado a tu mascota!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:drawableTopCompat="@drawable/animal_wow"
-            android:drawablePadding="25dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/akronim"
-            android:textStyle="bold"
-            android:textColor="@color/Crimson"
-
             android:layout_centerInParent="true"
+            android:padding="8dp"
+            android:maxWidth="250dp"
+
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/noRegistered"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:visibility="gone"
 
             tools:visibility="visible"
-            app:drawableBottomCompat="@drawable/ic_arrow_blue"
+
             />
         <!-- landing layout start here -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pets"
+            android:padding="25dp"
             android:layout_width="match_parent"
             android:layout_height="550dp"
             android:orientation="vertical"
@@ -68,13 +65,18 @@
 
     </RelativeLayout>
 
-    <ProgressBar
+
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

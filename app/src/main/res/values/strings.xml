@@ -36,7 +36,27 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="App_name">petchecker</string>
+    <string name="noRegistered">¡Aún no has registrado ninguna mascota!</string>
+    <string name="askPetName">¿Cómo se llama?</string>
+    <string name="petName">Nombre</string>
+    <string name="back">Volver</string>
 
 
-
+<string-array name="gender">
+    <item>Macho</item>
+    <item>Hembra</item>
+</string-array>
+    <string-array name="animalType">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Hámster</item>
+        <item>Pájaro</item>
+        <item>Pez</item>
+        <item>Reptil</item>
+    </string-array>
+    <string-array name="yesNo">
+        <item>Sí</item>
+        <item>No</item>
+    </string-array>
 </resources>

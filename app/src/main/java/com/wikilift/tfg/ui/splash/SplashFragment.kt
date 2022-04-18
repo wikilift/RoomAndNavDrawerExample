@@ -18,7 +18,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentSplashBinding.bind(view)
-        binding.imageView.rotate(binding.imageView,3)
+
         val k = activity?.findViewById<View>(R.id.toolbar)
         k?.hide()
         Handler(Looper.getMainLooper()).postDelayed({

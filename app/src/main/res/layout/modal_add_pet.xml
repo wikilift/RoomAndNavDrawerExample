@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    app:cardCornerRadius="12dp"
-    android:padding="50dp"
+android:elevation="8dp"
+
     android:gravity="center"
 
     android:layout_gravity="center">
@@ -14,26 +14,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/greenskin">
+        android:background="@color/appDarkmain">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="¿Cómo se llama?"
-            android:fontFamily="@font/akronim"
-            android:textSize="40sp"
+            android:text="@string/petName"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="30sp"
             android:gravity="center"
             android:layout_marginTop="8dp"
-            android:textColor="@color/Crimson"/>
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:lottie_rawRes="@raw/doggy"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"/>
+            android:textColor="@color/WhiteSmoke"/>
+
         <com.google.android.material.textfield.TextInputLayout
 
             android:id="@+id/textInputLayout"
@@ -41,15 +34,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:hint="Empezemos con su nombre...."
 
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:singleLine="true"
+            android:hint="@string/askPetName"
+            android:inputType="textPersonName"
+            android:ellipsize="start"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="160dp">
 
 
             <EditText
                 android:id="@+id/nameOfPet"
+                android:gravity="center"
 
+                android:fontFamily="@font/montserrat_bold"
+                android:background="@color/WhiteSmoke"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="14sp"
@@ -68,7 +69,7 @@
                 android:textAllCaps="false"
                 android:padding="8dp"
                 android:drawableStart="@drawable/ic_baseline_pets_24"
-                android:text="Cancelar"
+                android:text="@string/back"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:cornerRadius="6dp"
