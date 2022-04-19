@@ -7,19 +7,19 @@
     android:id="@+id/actionBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_weight="1"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_weight="1"
     tools:background="@color/appDarkmain">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="61dp"
-        android:layout_toStartOf="@+id/themeChange"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_vertical"
         android:padding="8dp"
@@ -30,22 +30,23 @@
         android:textStyle="bold" />
 
     <ImageView
-
         android:layout_width="50dp"
+
         android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toStartOf="@+id/themeChange"
-        android:src="@drawable/logo" />
-
-    <androidx.appcompat.widget.SwitchCompat
-
-        android:layout_marginEnd="8dp"
         android:layout_alignParentEnd="true"
-        android:id="@+id/themeChange"
-        android:thumb="@drawable/thumb_selector"
-        app:track="@drawable/track_selector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginEnd="8dp"
+
+        android:src="@drawable/logo" />
+    <!--
+        <androidx.appcompat.widget.SwitchCompat
+
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/themeChange"
+            android:thumb="@drawable/thumb_selector"
+            app:track="@drawable/track_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
 
 
 </RelativeLayout>
