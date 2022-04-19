@@ -15,14 +15,20 @@ import android.view.animation.AnimationUtils
 import android.widget.EditText
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.wikilift.tfg.R
 import com.wikilift.tfg.core.extensions.*
 import com.wikilift.tfg.core.uiutils.Result
+import com.wikilift.tfg.core.uiutils.SwipeToDeleteCallbackAdapter
 import com.wikilift.tfg.core.uiutils.showDialog
 import com.wikilift.tfg.data.local.datasource.PetLocalDataSourceImpl
 import com.wikilift.tfg.data.local.room.AppDatabase
@@ -32,6 +38,7 @@ import com.wikilift.tfg.domain.PetRepoImpl
 import com.wikilift.tfg.presentation.PetViewModel
 import com.wikilift.tfg.presentation.PetViewModelFactory
 import com.wikilift.tfg.ui.landing.adapter.PetAdapter
+import com.wikilift.tfg.ui.petDetail.PetDetailFragmentDirections
 
 
 class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
@@ -50,6 +57,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
         )
     }
 
+    private lateinit var listAdapter: PetAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,22 +68,6 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
 
         buttonAddRotate()
         downloadPets()
-
-
-        /*else {
-           val k = activity?.findViewById<View>(R.id.toolbar)
-           k?.show()
-
-       }*/
-
-        /*try {
-            ImagePicker.with(requireActivity()).createIntentFromDialog { launcher.launch(it) }
-
-            //findNavController().navigate(R.id.action_landingFragment_to_petDetailFragment)
-
-        } catch (e: Exception) {
-            Log.d(ContentValues.TAG, e.toString())
-        }*/
 
 
     }
@@ -100,8 +92,8 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
                     if (result.data.isEmpty()) binding.noPetsRegistered.show()
                     binding.landingView.show()
                     listenerNewPet()
-                    val list=result.data.toMutableList()
-                    val listAdapter = PetAdapter(
+                    val list = result.data.toMutableList()
+                    listAdapter = PetAdapter(
                         list,
                         onClickListener = { view, errorCode, i ->
                             adapterMethod(
@@ -110,8 +102,29 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
                                 i
                             )
                         })
-                    binding.rvPets.adapter=listAdapter
-                    Log.d(XX, "He acabado ${result.data.size}")
+                    binding.rvPets.adapter = listAdapter
+
+
+                    val swipeToDeleteCallbackAdapter =
+                        object : SwipeToDeleteCallbackAdapter(requireContext()) {
+                            override fun onSwiped(
+                                viewHolder: RecyclerView.ViewHolder,
+                                direction: Int
+                            ) {
+                                val temporal =
+                                    listAdapter.returnOrder(viewHolder.absoluteAdapterPosition)
+                                val pos = viewHolder.absoluteAdapterPosition
+
+
+                                listAdapter.removeAt(viewHolder.absoluteAdapterPosition)
+                                snackDismiss(temporal, pos)
+
+
+                            }
+                        }
+                    val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallbackAdapter)
+                    itemTouchHelper.attachToRecyclerView(binding.rvPets)
+
                 }
                 is Result.Failure -> {
                     Log.d(XX, result.exception.toString())
@@ -120,16 +133,75 @@ class LandingFragment : Fragment(R.layout.fragment_landing), IOnBackPressed {
         }
     }
 
-    private fun adapterMethod(view: View, errorCode: PetBase, i: Int) {
 
+    private fun snackDismiss(temporal: PetBase, pos: Int) {
+        var dismiss = false
+        val snackBar = Snackbar
+            .make(requireView(), "", Snackbar.LENGTH_SHORT)
+            .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            .setAction("Deshacer...") {
+                listAdapter.addItemAt(temporal, pos)
+                dismiss = true
+
+            }
+
+
+            .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                override fun onShown(transientBottomBar: Snackbar?) {
+                    super.onShown(transientBottomBar)
+
+                }
+
+                override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                    super.onDismissed(transientBottomBar, event)
+
+                    if (!dismiss) {
+                        try {
+                            deleteFromDb(temporal)
+                        } catch (e: Exception) {
+                            Log.d(XX, "Exception by agony")
+                        }
+
+                    }
+
+
+                }
+            })
+
+        val snackBarView = snackBar.view
+
+        snackBarView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.Crimson))
+        snackBar.show()
+
+    }
+
+    private fun deleteFromDb(temporal: PetBase) {
+        val name = temporal.name
+        viewModel.deletePet(temporal).observe(viewLifecycleOwner) {
+            when (it) {
+                is Result.Succes -> {
+                    makeToast(requireContext(), "$name ha sido eliminado de la lista")
+                }
+                is Result.Failure -> {
+                    Log.d(XX, it.exception.toString())
+                }
+                is Result.Loading -> {
+
+                }
+            }
+        }
+    }
+
+    private fun adapterMethod(view: View, pet: PetBase, i: Int) {
+       val action=LandingFragmentDirections.actionLandingFragmentToPetDetailFragment(pet)
+        findNavController().navigate(action)
     }
 
     private fun listenerNewPet() {
         binding.addButton.setOnClickListener {
-            showDialog(requireContext(),layoutInflater,findNavController())
+            showDialog(requireContext(), layoutInflater, findNavController())
         }
     }
-
 
 
     override fun onBackPressed(): Boolean {

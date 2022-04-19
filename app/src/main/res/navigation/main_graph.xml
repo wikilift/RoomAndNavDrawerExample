@@ -33,6 +33,9 @@
             app:destination="@id/landingFragment"
             app:popUpTo="@id/landingFragment"
             app:popUpToInclusive="true"/>
+        <argument
+            android:name="travelDto"
+            app:argType="com.wikilift.tfg.data.model.room.entity.PetBase" />
     </fragment>
     <fragment
         android:id="@+id/testZone"

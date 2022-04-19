@@ -13,10 +13,12 @@
         <entry key="app/src/main/res/drawable/gradient_spinner.xml" value="0.2565" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.2565" />
+        <entry key="app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_baseline_pets_24.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/ic_bulldog_1456110.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/ic_pug_4862083.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/reounded_frame.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/simple_gradient.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/thumb_selector.xml" value="0.3185" />
         <entry key="app/src/main/res/drawable/track_selector.xml" value="0.3185" />
@@ -32,7 +34,7 @@
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_test_zone.xml" value="0.29074074074074074" />
         <entry key="app/src/main/res/layout/modal_add_pet.xml" value="0.18177083333333333" />
-        <entry key="app/src/main/res/layout/nav_header.xml" value="0.5440222428174235" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.5161839863713799" />
         <entry key="app/src/main/res/layout/pet_item_row.xml" value="0.35625" />
         <entry key="app/src/main/res/menu/activity_home_navigation_drawer.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.18177083333333333" />

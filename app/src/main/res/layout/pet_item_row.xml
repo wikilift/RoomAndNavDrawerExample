@@ -1,72 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="10dp"
     android:layout_marginBottom="25dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+
     app:cardCornerRadius="16dp"
     app:cardElevation="12dp"
     android:padding="18dp"
     android:background="@color/itemRowBK">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:background="@color/itemRowBK"
-        android:orientation="horizontal"
-        android:layout_height="200dp">
-        <LinearLayout
+
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
+
+
             android:layout_gravity="center"
-            android:layout_marginStart="15dp"
-
-            android:padding="12dp"
-           >
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-
-                tools:text="Charly"
-                android:textColor="@color/WhiteSmoke"
-                android:fontFamily="@font/montserrat_bold"
-                android:textStyle="bold"
-                android:textSize="25sp"
-
-                android:layout_gravity="center"
-               />
-            <TextView
-                android:layout_marginTop="8dp"
-                android:id="@+id/breed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-
-                tools:text="Charly"
-                android:textColor="@color/WhiteSmoke"
-                android:fontFamily="@font/montserrat_bold"
-                android:textStyle="bold"
-                android:textSize="15sp"
-
-               />
-
-        </LinearLayout>
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgPet"
-                android:layout_weight="2"
-                android:padding="50dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgPet"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgPet"
+            app:layout_constraintVertical_bias="0.318"
+            tools:text="Charly" />
 
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.142"
+            tools:text="Charly" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgPet"
+            android:layout_marginEnd="16dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            android:padding="16dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

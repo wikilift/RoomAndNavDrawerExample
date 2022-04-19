@@ -18,14 +18,9 @@
 
 
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_star"
-            android:title="Ajustes" />
 
 
-    </group>
+
 
 
 </menu>

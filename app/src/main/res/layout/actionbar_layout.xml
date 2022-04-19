@@ -3,12 +3,39 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/actionBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_weight="1"
+    tools:background="@color/appDarkmain">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="61dp"
+        android:layout_toStartOf="@+id/themeChange"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="@string/App_name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+        android:textColor="@color/WhiteSmoke"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/themeChange"
+        android:src="@drawable/logo" />
 
     <androidx.appcompat.widget.SwitchCompat
 

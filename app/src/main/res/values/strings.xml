@@ -36,7 +36,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="App_name">petchecker</string>
+    <string name="App_name">PetChecker</string>
     <string name="noRegistered">¡Aún no has registrado ninguna mascota!</string>
     <string name="askPetName">¿Cómo se llama?</string>
     <string name="petName">Nombre</string>

@@ -34,7 +34,7 @@ import com.wikilift.tfg.presentation.PetViewModel
 import com.wikilift.tfg.presentation.PetViewModelFactory
 
 
-class PetCreationPetFragment : Fragment(R.layout.fragment_pet_creation_pet) {
+class PetCreationPetFragment : Fragment(R.layout.fragment_pet_creation_pet),IOnBackPressed {
 
     private lateinit var binding: FragmentPetCreationPetBinding
     private val args: PetCreationPetFragmentArgs by navArgs()
@@ -235,4 +235,6 @@ class PetCreationPetFragment : Fragment(R.layout.fragment_pet_creation_pet) {
             }
 
     }
+
+    override fun onBackPressed(): Boolean =true
 }
