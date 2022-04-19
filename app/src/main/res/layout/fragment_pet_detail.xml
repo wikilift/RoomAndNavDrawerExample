@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,28 +7,327 @@
     android:layout_height="match_parent"
 
     tools:context=".ui.petDetail.PetDetailFragment">
-
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:text="soy el pet detail"
-        android:textColor="@color/Crimson"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btn_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="12dp">
 
 
-        android:padding="8dp"
-        android:text="Navigate"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/circle_gray">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/photo"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/add_photo" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/petname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="20sp"
+
+                android:textStyle="bold"
+
+                 />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayBK"
+                android:hint="Género"
+                android:textColorHint="@color/WhiteSmoke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:startIconDrawable="@drawable/ic_baseline_transgender_24"
+                app:startIconTint="@color/logoBlue"
+                tools:layout_editor_absoluteY="160dp">
+
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:textColor="@color/WhiteSmoke"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                     />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:hint="Tipo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayBK"
+
+                android:textColorHint="@color/WhiteSmoke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:startIconDrawable="@drawable/pets_blue"
+                app:startIconTint="@color/logoBlue"
+                tools:layout_editor_absoluteY="160dp">
+
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:textColor="@color/WhiteSmoke"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayBK"
+                android:hint="Raza"
+                android:textColorHint="@color/WhiteSmoke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:startIconDrawable="@drawable/pets_blue"
+                app:startIconTint="@color/logoBlue"
+                tools:layout_editor_absoluteY="160dp">
+
+
+                <EditText
+
+
+                    android:id="@+id/breed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:enabled="false"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:textColor="@color/WhiteSmoke"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dateInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:elevation="6dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Fecha de nacimiento"
+                android:textColorHint="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="8dp"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+                app:startIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                app:startIconTint="@color/logoBlue">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grayBK"
+                    android:enabled="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:inputType="none"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:cornerRadius="8dp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayBK"
+                android:hint="Peso"
+                android:textColorHint="@color/WhiteSmoke"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:startIconDrawable="@drawable/ic_baseline_balance_24"
+                app:startIconTint="@color/logoBlue">
+
+
+                <EditText
+
+
+                    android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textColor="@color/WhiteSmoke"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Tiene Chip"
+                android:textAlignment="center"
+                android:textColorHint="@color/WhiteSmoke"
+                android:textStyle="bold"
+                android:theme="@style/changeBackgroundColor"
+                app:endIconTint="@color/logoBlue"
+                app:startIconDrawable="@drawable/ic_baseline_view_compact_24"
+                app:startIconTint="@color/logoBlue">
+
+                <AutoCompleteTextView
+                    android:id="@+id/hasChip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:inputType="none"
+
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/chipNumber"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayBK"
+                android:hint="Número de chip"
+                android:textColorHint="@color/WhiteSmoke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:startIconDrawable="@drawable/pets_blue"
+                app:startIconTint="@color/logoBlue"
+                tools:layout_editor_absoluteY="160dp">
+
+
+                <EditText
+
+                    android:inputType="number"
+                    android:id="@+id/edtChipNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/WhiteSmoke"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnRegister"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Guardar"
+
+                android:textAllCaps="false"
+                android:textColor="@color/logoBlue"
+                android:textSize="20sp"
+
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:visibility="gone"
+                android:id="@+id/progressbar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
