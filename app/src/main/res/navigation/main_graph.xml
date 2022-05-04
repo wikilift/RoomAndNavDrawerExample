@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/splashFragment3">
+    app:startDestination="@id/nearVetsWebView">
 
     <fragment
         android:id="@+id/landingFragment"
@@ -68,4 +68,14 @@
             app:enterAnim="@anim/slide_out_left"
             app:exitAnim="@anim/slide_in_right" />
     </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.wikilift.tfg.ui.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/nearVetsWebView"
+        android:name="com.wikilift.tfg.ui.maps.NearVetsWebView"
+        android:label="fragment_near_vets_web_view"
+        tools:layout="@layout/fragment_near_vets_web_view" />
 </navigation>

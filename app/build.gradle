@@ -4,6 +4,7 @@ plugins {
     id "androidx.navigation.safeargs"
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -53,13 +54,13 @@ dependencies {
     //navigation component
 
 
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
     // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-alpha04"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-beta01"
     // LiveData
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha04")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-beta01")
 
 
     //recyclerview
@@ -98,14 +99,20 @@ dependencies {
 
 
     //material
-    implementation "com.google.android.material:material:1.6.0-alpha03"
+    implementation "com.google.android.material:material:1.7.0-alpha01"
 
+    //maps
 
-
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
 
     // Material Design Library
     implementation 'com.google.android.material:material:1.5.0'
 
     // Lottie Animation Library
     implementation 'com.airbnb.android:lottie:4.2.2'
+
+    //Location
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
+
 }

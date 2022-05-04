@@ -43,10 +43,10 @@
     <string name="back">Volver</string>
 
 
-<string-array name="gender">
-    <item>Macho</item>
-    <item>Hembra</item>
-</string-array>
+    <string-array name="gender">
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
     <string-array name="animalType">
         <item>Perro</item>
         <item>Gato</item>

@@ -1,14 +1,23 @@
 package com.wikilift.tfg
 
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.wikilift.tfg.core.LOCATION_PERMISSION_REQ_CODE
 
 
 import com.wikilift.tfg.core.extensions.IOnBackPressed
@@ -22,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +66,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
     }
 
 
@@ -80,6 +91,9 @@ class MainActivity : AppCompatActivity() {
                             layoutInflater,
                             navController
                         )
+                    }
+                    R.id.nearVets -> {
+                        navController.navigate(R.id.nearVetsWebView)
                     }
 
 
@@ -121,6 +135,9 @@ class MainActivity : AppCompatActivity() {
                     binding.toolbar.show()
 
                 }
+                R.id.nearVetsWebView->{
+                    binding.toolbar.show()
+                }
 
 
                 else -> {
@@ -129,6 +146,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
 }

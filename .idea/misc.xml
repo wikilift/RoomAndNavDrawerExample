@@ -27,8 +27,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/custom_drop_down_adapter.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_motion_layout.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_motion_layout_testing_zone.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_near_vets_web_view.xml" value="0.1703125" />
         <entry key="app/src/main/res/layout/fragment_pet_creation_pet.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_pet_detail.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.18177083333333333" />

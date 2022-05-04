@@ -12,6 +12,10 @@
             android:id="@+id/addPet"
             android:icon="@drawable/ic_baseline_pets_24"
             android:title="Añadir" />
+        <item
+            android:id="@+id/nearVets"
+            android:icon="@drawable/ic_baseline_local_hospital_24"
+            android:title="Veterinarios" />
 
     </group>
 
