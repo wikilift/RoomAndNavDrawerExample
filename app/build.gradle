@@ -106,7 +106,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
 
     // Material Design Library
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
 
     // Lottie Animation Library
     implementation 'com.airbnb.android:lottie:4.2.2'
@@ -115,4 +115,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
 
+    //UnitTest
+    testImplementation 'junit:junit:4.+'
+    testImplementation "io.mockk:mockk:1.12.2"
 }
